@@ -121,9 +121,7 @@ func (m *ConditionsMarker) ResourcesDeleting(msg string, args ...any) {
 	m.cs.SetFalse(ResourcesReady, "ResourceDeleting", fmt.Sprintf(msg, args...))
 }
 
-// ReconciliationSuspended signals that reconciliation is suspended for this
-// instance. ResourcesReady is set to False because the controller cannot
-// confirm resource health while reconciliation is not running.
+// ReconciliationSuspended signals that reconciliation is suspended for this instance.
 func (m *ConditionsMarker) ReconciliationSuspended(msg string, args ...any) {
 	m.cs.SetFalse(ResourcesReady, "ReconciliationSuspended", fmt.Sprintf(msg, args...))
 }
